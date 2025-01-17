@@ -2,11 +2,12 @@ import { useEffect, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useAnimations, useFBX } from '@react-three/drei'
 
+import developer from '../assets/3d/human/developer.glb'
 
 const Developer = ({animationName = 'idle', ...props}) => {
   const group = useRef()
 
-  const { nodes, materials } = useGLTF('src/assets/3d/human/developer.glb')
+  const { nodes, materials } = useGLTF(developer)
   const { animations : idleAnimations } = useFBX('src/assets/3d/human/idle.fbx')
   const { animations : saluteAnimations } = useFBX('src/assets/3d/human/salute.fbx')
   const { animations : clappingAnimations } = useFBX('src/assets/3d/human/clapping.fbx')
