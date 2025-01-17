@@ -6,9 +6,9 @@ import Butterfly from '../models/Butterfly'
 import HomeInfo from '../components/HomeInfo'
 import Robot from '../models/Robot'
 
-import sound from '../assets/magic.mp3'
-import soundon from '../assets/icons/soundon.png'
-import soundoff from '../assets/icons/soundoff.png'
+import sound from '/assets/magic.mp3'
+import soundon from '/assets/icons/soundon.png'
+import soundoff from '/assets/icons/soundoff.png'
 
 const Home = () => {
   const audioRef = useRef(new Audio(sound))

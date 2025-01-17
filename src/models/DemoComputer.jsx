@@ -3,12 +3,14 @@ import { useGLTF, useVideoTexture } from '@react-three/drei'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
-import computer from '../assets/3d/computer.glb'
+import computer from '/assets/3d/computer.glb'
+import video1 from '/assets/videos/project1.mp4'
+
 
 const DemoComputer = (props) => {
   const group = useRef()
   const { nodes, materials } = useGLTF(computer)
-  const txt = useVideoTexture(props.texture ? props.texture : '/src/assets/videos/project1.mp4')
+  const txt = useVideoTexture(props.texture ? props.texture : video1)
 
   useEffect(() => {
     if (txt) {
@@ -1008,6 +1010,6 @@ const DemoComputer = (props) => {
   )
 }
 
-useGLTF.preload('src/assets/3d/computer.glb')
+useGLTF.preload(computer)
 
 export default DemoComputer

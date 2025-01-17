@@ -1,22 +1,21 @@
-import { charm, HW } from "../assets/images";
-import {
-    contact,
-    css,
-    git,
-    github,
-    html,
-    javascript,
-    linkedin,
-    nodejs,
-    react,
-    tailwindcss,
-    java,
-    python,
-    cpp,
-    docker,
-    postgresql,
-    junit,
-} from "../assets/icons";
+import charm from "/assets/images/charm.png"
+import HW from "/assets/images/HW.png"
+import css from "/assets/icons/css.svg"
+import git from "/assets/icons/git.svg"
+import github from "/assets/icons/github.svg"
+import html from "/assets/icons/html.svg"
+import javascript from "/assets/icons/javascript.svg"
+import linkedin from "/assets/icons/linkedin.svg"
+import nodejs from "/assets/icons/nodejs.svg"
+import react from "/assets/icons/react.svg"
+import tailwindcss from "/assets/icons/tailwindcss.svg"
+import java from "/assets/icons/java.svg"
+import python from "/assets/icons/python.svg"
+import cpp from "/assets/icons/cpp.svg"
+import docker from "/assets/icons/docker.svg"
+import postgresql from "/assets/icons/postgresql.svg"
+import junit from "/assets/icons/junit.svg"
+
 
 export const skills = [
     {
@@ -140,24 +139,24 @@ export const myProjects = [
     subdesc:
       'The application provides an intuitive graphical user interface (GUI) that allows users to easily interact with the system. The Enigma Encryption System is designed to be easily extensible.',
     href: 'https://github.com/NobleBorn/Enigma',
-    texture: 'src/assets/videos/project1.mp4',
-    logo: 'src/assets/images/enigma.png',
+    texture: '/assets/videos/project1.mp4',
+    logo: '/assets/images/enigma.png',
     logoStyle: {
       backgroundColor: '#13202F',
       border: '0.2px solid #36201D',
       boxShadow: '0px 0px 60px 0px #2F6DB54D',
     },
-    spotlight: 'src/assets/images/spotlight2.png',
+    spotlight: '/assets/images/spotlight2.png',
     tags: [
       {
         id: 1,
         name: 'Java',
-        path: 'src/assets/icons/java.svg',
+        path: '/assets/icons/java.svg',
       },
       {
         id: 2,
         name: 'CSS',
-        path: 'src/assets/icons/css.svg',
+        path: '/assets/icons/css.svg',
       },
     ],
   },
@@ -167,39 +166,39 @@ export const myProjects = [
     subdesc:
       'This was my Bachelor`s thesis project which was completed collaboratively with others : Johan Berg, Agnes Brogeby, Jonathan Edenlund, Malin Kihlström and Oscar Palm.',
     href: 'https://github.com/NobleBorn/Python-Tutorial-Package',
-    texture: 'src/assets/videos/project2.mp4',
-    logo: 'src/assets/images/maskot.png',
+    texture: '/assets/videos/project2.mp4',
+    logo: '/assets/images/maskot.png',
     logoStyle: {
       backgroundColor: '#2A1816',
       border: '0.2px solid #17293E',
       boxShadow: '0px 0px 60px 0px #AA3C304D',
     },
-    spotlight: 'src/assets/images/spotlight1.png',
+    spotlight: '/assets/images/spotlight1.png',
     tags: [
       {
         id: 1,
         name: 'React.js',
-        path: 'src/assets/images/react.svg',
+        path: '/assets/images/react.svg',
       },
       {
         id: 2,
         name: 'Next.js',
-        path: 'src/assets/icons/nextjs.svg',
+        path: '/assets/icons/nextjs.svg',
       },
       {
         id: 3,
         name: 'TypeScript',
-        path: 'src/assets/images/typescript.png',
+        path: '/assets/images/typescript.png',
       },
       {
         id: 4,
         name: 'CSS',
-        path: 'src/assets/icons/css.svg',
+        path: '/assets/icons/css.svg',
       },
       {
         id: 5,
         name: 'Docker',
-        path: 'src/assets/icons/docker.svg',
+        path: '/assets/icons/docker.svg',
       },
     ],
   },
@@ -209,25 +208,25 @@ export const myProjects = [
     subdesc:
       'This project was part of the Agile Methodologies course and was completed collaboratively with others :  Arash Amiry, Gustav Berndtzen, Nils Bengtsson Svanstedt, Felix Erngård, Pontus Engström, Alexander Persson and Omar Younes.',
     href: 'https://github.com/NobleBorn/QuizApp?tab=readme-ov-file',
-    texture: 'src/assets/videos/project3.mp4',
-    logo: 'src/assets/images/quizApp.png',
+    texture: '/assets/videos/project3.mp4',
+    logo: '/assets/images/quizApp.png',
     logoStyle: {
       backgroundColor: '#1C1A43',//#60f5a1
       //background: 'linear-gradient(0deg, #CFA7F550, #CFA7F550), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(220, 190, 245, 0.8) 100%);', //'linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)'
       border: '0.2px solid #252262',
       boxShadow: '0px 0px 60px 0px #635BFF4D',//rgba(35, 131, 96, 0.3)
     },
-    spotlight: 'src/assets/images/spotlight5.png',
+    spotlight: '/assets/images/spotlight5.png',
     tags: [
       {
         id: 1,
         name: 'Java',
-        path: 'src/assets/icons/java.svg',
+        path: '/assets/icons/java.svg',
       },
       {
         id: 2,
         name: 'CSS',
-        path: 'src/assets/icons/css.svg',
+        path: '/assets/icons/css.svg',
       },
     ],
   },
@@ -237,34 +236,34 @@ export const myProjects = [
     subdesc:
       'This project was part of the Web Application course and was completed collaboratively with three others :  Harry Danell, Rikard Roos and Omar Younes.',
     href: 'https://www.youtube.com/watch?v=PuOVqP_cjkE',
-    texture: 'src/assets/videos/project4.mp4',
-    logo: 'src/assets/images/fotovault.png',
+    texture: '/assets/videos/project4.mp4',
+    logo: '/assets/images/fotoVault.png',
     logoStyle: {
       backgroundColor: '#0E1F38',
       border: '0.2px solid #0E2D58',
       boxShadow: '0px 0px 60px 0px #2F67B64D',
     },
-    spotlight: 'src/assets/images/spotlight4.png',
+    spotlight: '/assets/images/spotlight4.png',
     tags: [
       {
         id: 1,
         name: 'React.js',
-        path: 'src/assets/images/react.svg',
+        path: '/assets/images/react.svg',
       },
       {
         id: 2,
         name: 'JavaScript',
-        path: 'src/assets/icons/javascript.svg',
+        path: '/assets/icons/javascript.svg',
       },
       {
         id: 3,
         name: 'TypeScript',
-        path: 'src/assets/images/typescript.png',
+        path: '/assets/images/typescript.png',
       },
       {
         id: 4,
         name: 'CSS',
-        path: 'src/assets/icons/css.svg',
+        path: '/assets/icons/css.svg',
       },
     ],
   },

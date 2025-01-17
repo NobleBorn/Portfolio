@@ -17,7 +17,7 @@ const About = () => {
           {/* Image Section */}
           <div className="flex justify-center items-center border-2 border-gray-500 rounded-lg p-4">
             <img 
-              src="src/assets/images/me.png" 
+              src="/assets/images/me.png" 
               alt="Image of Mojtaba Alizade" 
               className="w-full h-full object-cover"
             />

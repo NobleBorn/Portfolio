@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 
-import butterflyScene from '../assets/3d/butterfly.glb'
+import butterflyScene from '/assets/3d/butterfly.glb'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
 const Butterfly = ({isRotating, ...props}) => {

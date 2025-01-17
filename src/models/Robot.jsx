@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef } from 'react'
 
-import robotScene from '../assets/3d/robot.glb'
+import robotScene from '/assets/3d/robot.glb'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 

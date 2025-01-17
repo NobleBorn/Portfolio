@@ -2,16 +2,20 @@ import { useEffect, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useAnimations, useFBX } from '@react-three/drei'
 
-import developer from '../assets/3d/human/developer.glb'
+import developer from '/assets/3d/human/developer.glb'
+import idle from '/assets/3d/human/idle.fbx'
+import salute from '/assets/3d/human/salute.fbx'
+import clapping from '/assets/3d/human/clapping.fbx'
+import victory from '/assets/3d/human/victory.fbx'
 
 const Developer = ({animationName = 'idle', ...props}) => {
   const group = useRef()
 
   const { nodes, materials } = useGLTF(developer)
-  const { animations : idleAnimations } = useFBX('src/assets/3d/human/idle.fbx')
-  const { animations : saluteAnimations } = useFBX('src/assets/3d/human/salute.fbx')
-  const { animations : clappingAnimations } = useFBX('src/assets/3d/human/clapping.fbx')
-  const { animations : victoryAnimations } = useFBX('src/assets/3d/human/victory.fbx')
+  const { animations : idleAnimations } = useFBX(idle)
+  const { animations : saluteAnimations } = useFBX(salute)
+  const { animations : clappingAnimations } = useFBX(clapping)
+  const { animations : victoryAnimations } = useFBX(victory)
 
   idleAnimations[0].name = 'idle'
   saluteAnimations[0].name = 'salute'
@@ -94,6 +98,6 @@ const Developer = ({animationName = 'idle', ...props}) => {
   )
 }
 
-useGLTF.preload('src/assets/3d/human/developer.glb')
+useGLTF.preload(developer)
 
 export default Developer
