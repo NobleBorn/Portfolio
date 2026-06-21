@@ -1,70 +1,118 @@
 <script setup lang="ts">
-import '@/assets/card.css';
+import TopBar from '../components/top-bar.vue'
+import BottomBar from '../components/bottom-bar.vue'
+import '@/assets/homepage.css'
+import { onMounted, onUnmounted, ref } from 'vue'
+
+const currentDateTime = ref('')
+let timeInterval: number | undefined
+
+function updateDateTime() {
+  const now = new Date()
+
+  const formatted = new Intl.DateTimeFormat('en-GB', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'long',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(now)
+
+  currentDateTime.value = formatted.replace('.', '')
+  currentDateTime.value = currentDateTime.value.slice(0, 12) +  currentDateTime.value.slice(14)
+}
+
+onMounted(() => {
+  updateDateTime()
+
+  timeInterval = window.setInterval(() => {
+    updateDateTime()
+  }, 1000)
+})
+
+onUnmounted(() => {
+  if (timeInterval) {
+    clearInterval(timeInterval)
+  }
+})
 </script>
 
 <template>
-  <main class="main-container">
-      <svg class="svg-container">
-        <defs>
-          <filter id="turbulent-displace" colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1" />
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
-              <animate attributeName="dy" values="700; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
-            </feOffset>
+  <main class="home-page">
+    <section class="home-top">
+      <TopBar :currentDateTime="currentDateTime" />
+    </section>
 
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1" />
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
-              <animate attributeName="dy" values="0; -700" dur="6s" repeatCount="indefinite" calcMode="linear" />
-            </feOffset>
+    <section class="home-middle">
+        <aside class="side-column left-column">
+            <!-- left widgets -->
+        </aside>
 
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="2" />
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
-              <animate attributeName="dx" values="490; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
-            </feOffset>
+        <div class="hero-panel">
+            <!-- LEFT CONTENT -->
+            <div class="hero-left">
 
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="2" />
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
-              <animate attributeName="dx" values="0; -490" dur="6s" repeatCount="indefinite" calcMode="linear" />
-            </feOffset>
+            <p class="hero-intro">Hi, I’m</p>
 
-            <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
-            <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
-            <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
+            <h1 class="hero-name">Mojtaba Alizade</h1>
 
-            <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="30" xChannelSelector="R" yChannelSelector="B" />
-          </filter>
-        </defs>
-      </svg>
+            <h2 class="hero-title">Software Engineer & Developer</h2>
 
-      <router-link to="/regexPage" class="card-link">
-        <div class="card-container">
-          <div class="inner-container">
-            <div class="border-outer">
-              <div class="main-card"></div>
-            </div>
-            <div class="glow-layer-1"></div>
-            <div class="glow-layer-2"></div>
-          </div>
+            <div class="hero-line"></div>
 
-          <div class="overlay-1"></div>
-          <div class="overlay-2"></div>
-          <div class="background-glow"></div>
+            <p class="hero-description">
+                I build modern, scalable, and user-focused software systems
+                that solve real problems and drive meaningful impact.
+            </p>
 
-          <div class="content-container">
-            <div class="content-top">
-              <div class="scrollbar-glass">
-                Tool
-              </div>
-              <p class="title">Regex Tester</p>
+            <div class="hero-actions">
+                <a href="#projects" class="hero-button hero-button-primary">
+                Open Projects
+                <span>↗</span>
+                </a>
+
+                <a href="#contact" class="hero-button hero-button-secondary">
+                Get in Touch
+                <span>✈</span>
+                </a>
             </div>
 
-            <hr class="divider" />
+            <div class="hero-stats">
+                <div>
+                <span>Location</span>
+                <strong>Sweden</strong>
+                </div>
 
-            <div class="content-bottom">
-              <p class="description">Test and debug regular expressions instantly with live pattern matching.</p>
+                <div class="stat-divider"></div>
+
+                <div>
+                <span>Experience</span>
+                <strong>Junior</strong>
+                </div>
+
+                <div class="stat-divider"></div>
+
+                <div>
+                <span>Availability</span>
+                <strong>Open</strong>
+                </div>
             </div>
-          </div>
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="hero-right">
+            <div class="hero-orbit"></div>
+            <img src="@/assets/images/figure.png" alt="Noble Born" class="hero-image" />
+            </div>
         </div>
-      </router-link>
+
+        <aside class="side-column right-column">
+            <!-- right widgets -->
+        </aside>
+    </section>
+
+    <section class="home-bottom">
+      <BottomBar :currentDateTime="currentDateTime" />
+    </section>
   </main>
 </template>

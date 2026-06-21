@@ -1,0 +1,256 @@
+.bottombar-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem 1rem;
+  z-index: 20;
+}
+
+.bottombar-glass {
+  width: min(98%, 1500px);
+  min-height: 96px;
+
+  display: grid;
+  grid-template-columns: 1.15fr 2.6fr 1.1fr;
+  align-items: center;
+  gap: 1.5rem;
+
+  padding: 0.8rem 1.2rem;
+  border-radius: 1.4rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.04)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 20px 60px rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(24px);
+}
+
+/* LEFT PROFILE */
+
+.bottombar-profile {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.8rem 1rem;
+  border-radius: 1.1rem;
+
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-orb {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 35% 35%, #ffffff 0 8%, transparent 9%),
+    radial-gradient(circle at 50% 50%, #8f7cff, #4934c9 55%, #1d174a);
+
+  box-shadow:
+    0 0 20px rgba(139, 110, 255, 0.75),
+    inset 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.profile-name {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.profile-role {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* CENTER NAV */
+
+.bottombar-nav {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.dock-item {
+  height: 74px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+
+  border-radius: 1rem;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.dock-item svg {
+  font-size: 1.25rem;
+}
+
+.dock-item span {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.dock-item:hover {
+  transform: translateY(-3px);
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dock-item-active {
+  color: white;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(138, 104, 255, 0.35),
+      rgba(138, 104, 255, 0.12)
+    );
+
+  border: 1px solid rgba(157, 130, 255, 0.55);
+  box-shadow:
+    0 0 24px rgba(122, 92, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.dock-item-active svg {
+  color: #a997ff;
+}
+
+/* RIGHT DATE */
+
+.bottombar-date {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  padding: 0.8rem 1rem;
+  border-radius: 1.1rem;
+
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.date-card {
+  width: 48px;
+  height: 52px;
+  border-radius: 0.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(138, 104, 255, 0.38),
+      rgba(138, 104, 255, 0.14)
+    );
+
+  border: 1px solid rgba(157, 130, 255, 0.45);
+  box-shadow: 0 0 20px rgba(122, 92, 255, 0.28);
+}
+
+.date-day {
+  color: #b9aaff;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.date-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: white;
+  white-space: nowrap;
+}
+
+.date-text span {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.date-text strong {
+  font-size: 0.85rem;
+}
+
+/* SMALL ORBIT STATUS */
+
+.status-orbit {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(139, 110, 255, 0.9) 0deg 5deg,
+      transparent 5deg 14deg
+    );
+
+  animation: orbit-spin 10s linear infinite;
+}
+
+.status-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background: rgba(8, 12, 24, 0.9);
+}
+
+.status-orbit span {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+
+  background: #8f7cff;
+  box-shadow: 0 0 16px rgba(143, 124, 255, 0.9);
+
+  transform: translateY(-50%);
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
