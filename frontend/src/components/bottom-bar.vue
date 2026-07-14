@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import '@/assets/bottom-bar.css'
+import '@/assets/top-bar.css'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -34,12 +35,12 @@ const dateParts = computed(() => {
 
       <!-- CENTER NAVIGATION -->
       <nav class="bottombar-nav">
-        <a href="#home" class="dock-item dock-item-active">
+        <a href="/" class="dock-item dock-item-active">
           <font-awesome-icon :icon="['fas', 'house']" />
           <span>Home</span>
         </a>
 
-        <a href="#projects" class="dock-item">
+        <a href="/projects" class="dock-item">
           <font-awesome-icon :icon="['fas', 'briefcase']" />
           <span>Projects</span>
         </a>
