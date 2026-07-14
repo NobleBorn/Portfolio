@@ -6,6 +6,18 @@ defineProps<{
   currentDateTime: string
 }>()
 
+interface BatteryManager extends EventTarget {
+  charging: boolean
+  level: number
+  chargingTime: number
+  dischargingTime: number
+
+  addEventListener(
+    type: 'levelchange' | 'chargingchange' | 'chargingtimechange' | 'dischargingtimechange',
+    listener: () => void
+  ): void
+}
+
 const batteryLevel = ref(70)
 const batteryClass = ref('battery-high')
  
@@ -24,15 +36,21 @@ function updateBatteryInfo(battery: BatteryManager) {
 }
 
 onMounted(async () => {
-  if ('getBattery' in navigator) {
-    const battery = await navigator.getBattery()
-
-    updateBatteryInfo(battery)
-
-    battery.addEventListener('levelchange', () => {
-      updateBatteryInfo(battery)
-    })
+  const nav = navigator as Navigator & {
+    getBattery?: () => Promise<BatteryManager>
   }
+
+  if (!nav.getBattery) {
+    return
+  }
+
+  const battery = await nav.getBattery()
+
+  updateBatteryInfo(battery)
+
+  battery.addEventListener('levelchange', () => {
+    updateBatteryInfo(battery)
+  })
 })
 
 </script>

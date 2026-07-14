@@ -1,0 +1,268 @@
+/* =========================
+   LEFT PANEL
+========================= */
+
+.social-card,
+.music-card {
+  background: rgba(8, 15, 32, 0.62);
+  border: 1px solid rgba(140, 160, 210, 0.18);
+  backdrop-filter: blur(22px);
+
+  border-radius: 1.4rem;
+  overflow: hidden;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* SOCIAL CARD */
+
+.social-card {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.4rem 1.6rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.panel-header h2 {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.panel-header svg {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.social-list {
+  min-height: 0;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+
+  padding: 1.2rem;
+}
+
+.social-list::-webkit-scrollbar {
+  width: 0;
+}
+
+.social-item {
+  min-height: 90px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+
+  padding: 0.85rem 0.95rem;
+  border-radius: 1rem;
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.social-item:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(143, 124, 255, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 38px rgba(0, 0, 0, 0.28),
+    0 0 24px rgba(143, 124, 255, 0.12);
+}
+
+.social-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.8rem;
+
+  color: white;
+  font-size: 1.3rem;
+
+  background: linear-gradient(135deg, rgba(143, 124, 255, 0.9), rgba(70, 100, 255, 0.75));
+  box-shadow: 0 0 22px rgba(143, 124, 255, 0.35);
+}
+
+.social-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.social-text strong {
+  font-size: 1rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.social-text span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+/* MUSIC CARD */
+
+.music-card {
+  padding: 1.3rem;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "cover info"
+    "progress progress"
+    "controls controls";
+
+  gap: 1rem;
+}
+
+.music-cover {
+  grid-area: cover;
+
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 1rem;
+
+  color: white;
+  font-size: 1.7rem;
+
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.35), transparent 25%),
+    linear-gradient(135deg, #8f7cff, #4f7dff);
+
+  box-shadow:
+    0 0 30px rgba(143, 124, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.music-info {
+  grid-area: info;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.music-label {
+  margin-bottom: 0.25rem;
+
+  color: rgba(231, 174, 107, 0.78);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.music-info strong {
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.music-info p {
+  margin: 0.25rem 0 0;
+
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.music-progress span {
+  display: block;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(90deg, #e7ae6b, #8f7cff);
+  box-shadow: 0 0 14px rgba(143, 124, 255, 0.45);
+
+  transition: width 0.2s linear;
+}
+
+.music-progress span {
+  display: block;
+  width: 46%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(90deg, #e7ae6b, #8f7cff);
+  box-shadow: 0 0 14px rgba(143, 124, 255, 0.45);
+}
+
+.music-controls {
+  grid-area: controls;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.music-controls button {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 999px;
+
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.music-controls button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.music-play {
+  width: 46px !important;
+  height: 46px !important;
+
+  background: linear-gradient(135deg, #e7ae6b, #8f7cff) !important;
+  box-shadow: 0 0 22px rgba(143, 124, 255, 0.35);
+}

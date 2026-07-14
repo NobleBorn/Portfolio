@@ -1,10 +1,14 @@
 :root {
-  --lg-bg-color: rgba(255, 255, 255, 0.25);
-  --lg-highlight: rgba(255, 255, 255, 0.75);
+  --lg-bg-color: rgba(8, 15, 32, 0.62);
+  --lg-highlight: rgba(231, 174, 107, 0.35);
   --lg-text: #ffffff;
-  --lg-hover-glow: rgba(255, 255, 255, 0.4);
+  --lg-hover-glow: rgba(143, 124, 255, 0.4);
   --lg-red: #fb4268;
   --lg-grey: #5b5b5b;
+
+  --os-gold: #e7ae6b;
+  --os-purple: #8f7cff;
+  --os-blue: #638cff;
 }
 
 /* ========== BASE LAYOUT ========== */
