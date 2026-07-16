@@ -2,6 +2,8 @@
 import '@/assets/bottom-bar.css'
 import '@/assets/top-bar.css'
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 const props = defineProps<{
   currentDateTime: string
@@ -18,6 +20,12 @@ const dateParts = computed(() => {
     year: new Date().getFullYear().toString(),
   }
 })
+
+const route = useRoute()
+
+function isActive(path: string) {
+  return route.path === path
+}
 </script>
 
 <template>
@@ -35,15 +43,15 @@ const dateParts = computed(() => {
 
       <!-- CENTER NAVIGATION -->
       <nav class="bottombar-nav">
-        <a href="/" class="dock-item dock-item-active">
+        <RouterLink to="/" class="dock-item" :class="{ 'dock-item-active': isActive('/') }">
           <font-awesome-icon :icon="['fas', 'house']" />
           <span>Home</span>
-        </a>
+        </RouterLink>
 
-        <a href="/projects" class="dock-item">
+        <RouterLink to="/projects" class="dock-item" :class="{ 'dock-item-active': isActive('/projects') }">
           <font-awesome-icon :icon="['fas', 'briefcase']" />
           <span>Projects</span>
-        </a>
+        </RouterLink>
 
         <a href="#skills" class="dock-item">
           <font-awesome-icon :icon="['fas', 'globe']" />
