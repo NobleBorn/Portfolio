@@ -16,10 +16,10 @@
     </p>
 
     <div class="hero-actions">
-        <a href="#projects" class="hero-button hero-button-primary">
+        <RouterLink to="/projects" class="hero-button hero-button-primary">
         Open Projects
         <span>↗</span>
-        </a>
+        </RouterLink>
 
         <a href="#contact" class="hero-button hero-button-secondary">
         Get in Touch

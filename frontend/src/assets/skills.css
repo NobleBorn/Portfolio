@@ -1,0 +1,340 @@
+.skills-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at 75% 15%,
+      rgba(78, 111, 190, 0.2),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 15% 75%,
+      rgba(231, 174, 107, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #030711 0%, #07101f 48%, #02030a 100%);
+
+}
+
+.skills-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.7) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(120, 160, 255, 0.5) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(231, 174, 107, 0.45) 0 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    50px 50px,
+    84px 84px,
+    125px 125px;
+
+  background-position:
+    0 0,
+    25px 35px,
+    70px 15px;
+
+  opacity: 0.22;
+}
+
+.skills-page-header {
+  max-width: min(100%, 1500px);
+  margin: 0 auto 2rem;
+}
+
+.skills-page-header h1 {
+  margin: 0;
+
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+
+  background: linear-gradient(90deg, #ffffff, #e7ae6b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.skills-page-header p {
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.7;
+  text-align: left;
+}
+
+.skills-eyebrow {
+  margin: 0 0 0.6rem;
+  color: #e7ae6b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.skills-page-header h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  background: linear-gradient(90deg, #ffffff, #e7ae6b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+
+  width: min(100%, 1500px);
+  margin: 0 auto;
+}
+
+.skills-constellation-card {
+  position: relative;
+  min-height: 420px;
+  padding: 1.3rem 1.2rem 1rem;
+
+  border-radius: 1.4rem;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    rgba(8, 15, 32, 0.88),
+    rgba(7, 12, 28, 0.72)
+  );
+
+  border: 1px solid rgba(120, 150, 255, 0.22);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 28px 90px rgba(0, 0, 0, 0.45),
+    0 0 70px rgba(143, 124, 255, 0.12);
+}
+
+.skills-constellation-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.65) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(143, 124, 255, 0.5) 0 1px, transparent 1.8px);
+
+  background-size: 70px 70px, 115px 115px;
+  background-position: 0 0, 45px 30px;
+  opacity: 0.18;
+}
+
+.skills-card-header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-label {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.sparkle {
+  color: #8f7cff;
+  font-size: 1.2rem;
+  text-shadow: 0 0 14px rgba(143, 124, 255, 0.8);
+}
+
+.constellation-area {
+  position: relative;
+  z-index: 2;
+  height: 340px;
+  margin-top: 1rem;
+}
+
+.constellation-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.skill-line {
+  stroke: rgba(143, 124, 255, 0.42);
+  stroke-width: 0.45;
+  filter: drop-shadow(0 0 4px rgba(143, 124, 255, 0.45));
+}
+
+.skill-node-wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.skill-node {
+  position: relative;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+
+  box-shadow:
+    0 0 10px currentColor,
+    0 0 24px currentColor;
+}
+
+.skill-node::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.12;
+  animation: node-pulse 2.5s ease-in-out infinite;
+}
+
+.skill-node-core {
+  color: #8f7cff;
+  background: #8f7cff;
+}
+
+.skill-node-proficient {
+  color: #4f9dff;
+  background: #4f9dff;
+}
+
+.skill-node-familiar {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.skill-node-center {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+  box-shadow:
+    0 0 16px currentColor,
+    0 0 32px currentColor;
+}
+
+.skill-name {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.skill-name-center {
+  bottom: 1.2rem;
+  font-size: 0.82rem;
+  color: #ffffff;
+}
+
+.skills-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  margin-top: 1.5rem;
+
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.skills-legend div {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-core {
+  background: #8f7cff;
+  box-shadow: 0 0 10px #8f7cff;
+}
+
+.legend-proficient {
+  background: #4f9dff;
+  box-shadow: 0 0 10px #4f9dff;
+}
+
+.legend-familiar {
+  background: white;
+  box-shadow: 0 0 10px white;
+}
+
+@keyframes node-pulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.12;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0.22;
+  }
+}
+
+@media (max-width: 1100px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills-bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.skills-bottom-bar > * {
+  pointer-events: auto;
+}

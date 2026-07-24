@@ -4,40 +4,11 @@ import BottomBar from '../components/bottom-bar.vue'
 import leftColumn from '../components/left-column.vue'
 import middleColumn from '../components/middle-column.vue'
 import rightColumn from '../components/right-column.vue'
+import { useCurrentDateTime } from '@/composables/useCurrentDateTime'
 import '@/assets/homepage.css'
-import { onMounted, onUnmounted, ref } from 'vue'
 
-const currentDateTime = ref('')
-let timeInterval: number | undefined
 
-function updateDateTime() {
-  const now = new Date()
-
-  const formatted = new Intl.DateTimeFormat('en-GB', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'long',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(now)
-
-  currentDateTime.value = formatted.replace('.', '')
-  currentDateTime.value = currentDateTime.value.slice(0, 12) +  currentDateTime.value.slice(14)
-}
-
-onMounted(() => {
-  updateDateTime()
-
-  timeInterval = window.setInterval(() => {
-    updateDateTime()
-  }, 1000)
-})
-
-onUnmounted(() => {
-  if (timeInterval) {
-    clearInterval(timeInterval)
-  }
-})
+const { currentDateTime } = useCurrentDateTime()
 </script>
 
 <template>
