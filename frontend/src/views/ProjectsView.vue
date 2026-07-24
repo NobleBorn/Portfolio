@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import '@/assets/projects.css'
 import BottomBar from '../components/bottom-bar.vue'
+import { useCurrentDateTime } from '@/composables/useCurrentDateTime'
+
+const { currentDateTime } = useCurrentDateTime()
 
 type Project = {
   title: string
@@ -52,49 +55,12 @@ const projects: Project[] = [
     githubUrl: '#',
   },
 ]
-
-import { onMounted, onUnmounted, ref } from 'vue'
-
-const currentDateTime = ref('')
-let timeInterval: number | undefined
-
-function updateDateTime() {
-  const now = new Date()
-
-  const formatted = new Intl.DateTimeFormat('en-GB', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'long',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(now)
-
-  currentDateTime.value = formatted.replace('.', '')
-  currentDateTime.value = currentDateTime.value.slice(0, 12) +  currentDateTime.value.slice(14)
-}
-
-onMounted(() => {
-  updateDateTime()
-
-  timeInterval = window.setInterval(() => {
-    updateDateTime()
-  }, 1000)
-})
-
-onUnmounted(() => {
-  if (timeInterval) {
-    clearInterval(timeInterval)
-  }
-})
 </script>
 
 <template>
   <main class="projects-page">
-    <div class="projects-stars"></div>
-
     <header class="projects-header">
       <div class="projects-heading">
-        <p class="projects-eyebrow">Projects</p>
         <h1>Selected Projects</h1>
         <p>
           Applications, experiments, and systems I have designed and built.
