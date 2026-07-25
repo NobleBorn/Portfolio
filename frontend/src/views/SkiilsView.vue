@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import '@/assets/skills.css'
-import '@/assets/projects.css'
-import BottomBar from '../components/bottom-bar.vue'
+import BottomBar from '@/components/bottom-bar.vue'
 import { useCurrentDateTime } from '@/composables/useCurrentDateTime'
+import '@/assets/skills.css'
 
 const { currentDateTime } = useCurrentDateTime()
 
@@ -16,56 +15,69 @@ type SkillNode = {
   center?: boolean
 }
 
-type SkillGroup = {
+type SkillCluster = {
   title: string
+  className: string
   nodes: SkillNode[]
 }
 
-const skillGroups: SkillGroup[] = [
+const skillClusters: SkillCluster[] = [
   {
-    title: 'Frontend',
+    title: 'Backend',
+    className: 'skill-cluster-backend',
     nodes: [
-      { name: 'Frontend', x: 50, y: 50, type: 'core', center: true },
-      { name: 'Vue', x: 24, y: 28, type: 'core' },
-      { name: 'JavaScript', x: 36, y: 18, type: 'core' },
-      { name: 'TypeScript', x: 64, y: 18, type: 'core' },
-      { name: 'React', x: 78, y: 30, type: 'proficient' },
-      { name: 'HTML', x: 28, y: 74, type: 'core' },
-      { name: 'CSS', x: 66, y: 76, type: 'core' },
-      { name: 'PrimeVue', x: 80, y: 62, type: 'familiar' },
+      { name: 'Backend', x: 50, y: 50, type: 'core', center: true },
+      { name: 'Java', x: 20, y: 32, type: 'core' },
+      { name: 'Spring Boot', x: 38, y: 16, type: 'core' },
+      { name: 'Python', x: 72, y: 18, type: 'core' },
+      { name: 'FastAPI', x: 86, y: 38, type: 'proficient' },
+      { name: 'SQL', x: 26, y: 76, type: 'core' },
+      { name: 'REST APIs', x: 64, y: 82, type: 'core' },
+      { name: 'JSON', x: 86, y: 68, type: 'familiar' },
     ],
   },
   {
-    title: 'Backend',
+    title: 'Frontend',
+    className: 'skill-cluster-frontend',
     nodes: [
-      { name: 'Backend', x: 50, y: 50, type: 'core', center: true },
-      { name: 'Java', x: 24, y: 28, type: 'core' },
-      { name: 'Spring Boot', x: 36, y: 18, type: 'core' },
-      { name: 'Python', x: 66, y: 18, type: 'core' },
-      { name: 'FastAPI', x: 78, y: 30, type: 'proficient' },
-      { name: 'SQL', x: 28, y: 74, type: 'core' },
-      { name: 'REST APIs', x: 66, y: 76, type: 'core' },
-      { name: 'JSON', x: 80, y: 62, type: 'familiar' },
+      { name: 'Frontend', x: 50, y: 50, type: 'core', center: true },
+      { name: 'Vue', x: 18, y: 24, type: 'core' },
+      { name: 'JavaScript', x: 36, y: 10, type: 'core' },
+      { name: 'TypeScript', x: 72, y: 18, type: 'core' },
+      { name: 'React', x: 86, y: 36, type: 'proficient' },
+      { name: 'HTML', x: 26, y: 74, type: 'core' },
+      { name: 'CSS', x: 64, y: 82, type: 'core' },
+      { name: 'PrimeVue', x: 86, y: 68, type: 'familiar' },
     ],
   },
   {
     title: 'Tools',
+    className: 'skill-cluster-tools',
     nodes: [
       { name: 'Tools', x: 50, y: 50, type: 'core', center: true },
-      { name: 'Git', x: 24, y: 28, type: 'core' },
-      { name: 'GitHub', x: 36, y: 18, type: 'core' },
-      { name: 'Docker', x: 66, y: 18, type: 'proficient' },
-      { name: 'Postman', x: 78, y: 30, type: 'familiar' },
-      { name: 'VS Code', x: 28, y: 74, type: 'core' },
-      { name: 'Agile', x: 66, y: 76, type: 'proficient' },
-      { name: 'Linux', x: 80, y: 62, type: 'familiar' },
+      { name: 'Git', x: 22, y: 26, type: 'core' },
+      { name: 'GitHub', x: 38, y: 10, type: 'core' },
+      { name: 'Docker', x: 70, y: 18, type: 'proficient' },
+      { name: 'Postman', x: 86, y: 40, type: 'familiar' },
+      { name: 'VS Code', x: 28, y: 78, type: 'core' },
+      { name: 'Agile', x: 62, y: 86, type: 'proficient' },
+      { name: 'Linux', x: 86, y: 74, type: 'familiar' },
     ],
   },
 ]
 
+/**
+ * These are page-level spine segments.
+ * They create the diagonal “milky way” line:
+ * top-left Backend -> middle Frontend -> bottom-right Tools
+ */
+
 function getConnections(nodes: SkillNode[]): [SkillNode, SkillNode][] {
   const center = nodes.find((node) => node.center)
-  if (!center) return []
+
+  if (!center) {
+    return []
+  }
 
   return nodes
     .filter((node) => !node.center)
@@ -75,89 +87,101 @@ function getConnections(nodes: SkillNode[]): [SkillNode, SkillNode][] {
 
 <template>
   <main class="skills-page">
-    <header class="projects-header">
-      <div class="projects-heading"> 
-        <h1>Skill Constellations</h1>
-        <p>
-            My technical skills grouped into frontend, backend, and tools.
-        </p>
-        </div>
-    </header>
+    <section class="skills-scene">
+      <header class="skills-header">
+        <h1>SKILLS</h1>
+        <span class="skills-sparkle">✦</span>
+      </header>
 
-    <section class="skills-grid">
-      <article
-        v-for="group in skillGroups"
-        :key="group.title"
-        class="skills-constellation-card"
+      <!-- Global diagonal spine -->
+      <svg
+        class="skills-spine-lines"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
       >
-        <div class="skills-card-header">
-          <span class="skills-label">{{ group.title.toUpperCase() }}</span>
-          <span class="sparkle">✦</span>
+        <path
+          class="skills-spine-glow"
+          d="M 22 24 C 32 34, 40 52, 52 48 S 68 54, 82 76"
+        />
+
+        <path
+          class="skills-spine-core"
+          d="M 22 24 C 32 34, 40 52, 52 48 S 68 54, 82 76"
+        />
+
+        <path
+          class="skills-spine-sparkles"
+          d="M 22 24 C 32 34, 40 52, 52 48 S 68 54, 82 76"
+        />
+      </svg>
+
+      <!-- Skill clusters -->
+      <section
+        v-for="cluster in skillClusters"
+        :key="cluster.title"
+        :class="['skill-cluster', cluster.className]"
+      >
+        <svg
+          class="cluster-lines"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <line
+            v-for="(connection, index) in getConnections(cluster.nodes)"
+            :key="index"
+            :x1="connection[0].x"
+            :y1="connection[0].y"
+            :x2="connection[1].x"
+            :y2="connection[1].y"
+            class="skill-line"
+          />
+        </svg>
+
+        <div
+          v-for="node in cluster.nodes"
+          :key="node.name"
+          class="skill-node-wrapper"
+          :style="{ left: `${node.x}%`, top: `${node.y}%` }"
+        >
+          <span
+            :class="[
+              'skill-node',
+              `skill-node-${node.type}`,
+              { 'skill-node-center': node.center },
+            ]"
+          ></span>
+
+          <span
+            :class="[
+              'skill-name',
+              { 'skill-name-center': node.center },
+            ]"
+          >
+            {{ node.name }}
+          </span>
+        </div>
+      </section>
+
+      <div class="skills-legend">
+        <div>
+          <span class="legend-dot legend-core"></span>
+          Core Skill
         </div>
 
-        <div class="constellation-area">
-          <svg
-            class="constellation-lines"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <line
-              v-for="(connection, index) in getConnections(group.nodes)"
-              :key="index"
-              :x1="connection[0].x"
-              :y1="connection[0].y"
-              :x2="connection[1].x"
-              :y2="connection[1].y"
-              class="skill-line"
-            />
-          </svg>
-
-          <div
-            v-for="node in group.nodes"
-            :key="node.name"
-            class="skill-node-wrapper"
-            :style="{ left: `${node.x}%`, top: `${node.y}%` }"
-          >
-            <span
-              :class="[
-                'skill-node',
-                `skill-node-${node.type}`,
-                { 'skill-node-center': node.center }
-              ]"
-            ></span>
-
-            <span
-              :class="[
-                'skill-name',
-                { 'skill-name-center': node.center }
-              ]"
-            >
-              {{ node.name }}
-            </span>
-          </div>
+        <div>
+          <span class="legend-dot legend-proficient"></span>
+          Proficient
         </div>
-      </article>
+
+        <div>
+          <span class="legend-dot legend-familiar"></span>
+          Familiar
+        </div>
+      </div>
     </section>
 
-    <div class="skills-legend">
-      <div>
-        <span class="legend-dot legend-core"></span>
-        Core Skill
-      </div>
-
-      <div>
-        <span class="legend-dot legend-proficient"></span>
-        Proficient
-      </div>
-
-      <div>
-        <span class="legend-dot legend-familiar"></span>
-        Familiar
-      </div>
-    </div>
-
     <section class="skills-bottom-bar">
-      <BottomBar :currentDateTime="currentDateTime" />
+      <BottomBar :current-date-time="currentDateTime" />
     </section>
   </main>
 </template>
