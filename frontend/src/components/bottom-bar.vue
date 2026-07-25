@@ -58,10 +58,10 @@ function isActive(path: string) {
           <span>Skills</span>
         </RouterLink>
 
-        <a href="#experience" class="dock-item">
+        <RouterLink to="/experience" class="dock-item" :class="{ 'dock-item-active': isActive('/experience') }">
           <font-awesome-icon :icon="['fas', 'calendar-check']" />
           <span>Experience</span>
-        </a>
+        </RouterLink>
 
         <a href="#contact" class="dock-item">
           <font-awesome-icon :icon="['fas', 'envelope']" />
