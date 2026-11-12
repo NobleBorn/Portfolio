@@ -21,10 +21,10 @@
         <span>↗</span>
         </RouterLink>
 
-        <a href="#contact" class="hero-button hero-button-secondary">
+        <RouterLink to="/contact" class="hero-button hero-button-secondary">
         Get in Touch
         <span>✈</span>
-        </a>
+        </RouterLink>
     </div>
 
     <div class="hero-stats">

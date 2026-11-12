@@ -10,6 +10,7 @@
   color: white;
 
   background:
+    url('@/assets/images/galaxy.png'),
     radial-gradient(
       circle at 75% 15%,
       rgba(78, 111, 190, 0.2),
@@ -21,6 +22,22 @@
       transparent 30%
     ),
     linear-gradient(135deg, #030711 0%, #07101f 48%, #02030a 100%);
+
+    background-size:
+    cover,
+    cover,
+    auto,
+    auto,
+    auto;
+
+  background-position:
+    center,
+    center,
+    center,
+    center,
+    center;
+
+  background-repeat: no-repeat;
 }
 
 .projects-page::before {
@@ -203,6 +220,24 @@
       rgba(3, 7, 17, 0.7),
       transparent 60%
     );
+}
+
+#text-to-sql-research .project-image {
+  background-size: contain;
+  background-color: #f3fbfd;
+}
+
+#text-to-sql-research .project-image::after {
+  background: none;
+}
+
+#photobarber .project-image {
+  background-size: contain;
+  background-color: #fdfbfc;
+}
+
+#photobarber .project-image::after {
+  background: none;
 }
 
 .project-status {

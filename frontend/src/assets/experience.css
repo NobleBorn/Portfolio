@@ -9,9 +9,27 @@
   color: white;
 
   background:
+    url('@/assets/images/galaxy.png'),
     radial-gradient(circle at 80% 20%, rgba(78, 111, 190, 0.22), transparent 30%),
     radial-gradient(circle at 18% 75%, rgba(143, 124, 255, 0.16), transparent 32%),
     linear-gradient(135deg, #030711 0%, #07101f 48%, #02030a 100%);
+
+    background-size:
+    cover,
+    cover,
+    auto,
+    auto,
+    auto;
+
+  background-position:
+    center,
+    center,
+    center,
+    center,
+    center;
+
+  background-repeat: no-repeat;
+    
 }
 
 .experience-page::before {

@@ -2,6 +2,9 @@
 node_modules/
 vendor/
 
+# Local reference images
+Pics/
+
 # Environment variables / secrets
 .env
 .env.local
@@ -37,3 +40,7 @@ venv/
 # Temporary files
 *.tmp
 *.swp
+
+# AI files
+CONVERSATION_UPDATES.md
+PROJECT_OVERVIEW.md

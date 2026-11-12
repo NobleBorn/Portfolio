@@ -1,60 +1,10 @@
 <script setup lang="ts">
 import '@/assets/projects.css'
+import { projects } from '@/data/projects'
 import BottomBar from '../components/bottom-bar.vue'
 import { useCurrentDateTime } from '@/composables/useCurrentDateTime'
 
 const { currentDateTime } = useCurrentDateTime()
-
-type Project = {
-  title: string
-  description: string
-  technologies: string[]
-  status: string
-  image: string
-  demoUrl?: string
-  githubUrl?: string
-}
-
-const projects: Project[] = [
-  {
-    title: 'TOPdesk Assistant',
-    description:
-      'An AI-assisted request flow that structures user input, recommends knowledge articles, and helps create better support tickets.',
-    technologies: ['Vue', 'Python', 'FastAPI', 'LLM', 'TOPdesk API'],
-    status: 'Featured',
-    image: '/images/topdesk-project.png',
-    demoUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    title: 'Developer Portfolio',
-    description:
-      'A custom OS-inspired portfolio with glass interfaces, reactive status elements, project navigation, and interactive components.',
-    technologies: ['Vue 3', 'TypeScript', 'CSS', 'Spring Boot'],
-    status: 'In progress',
-    image: '/images/portfolio-project.png',
-    demoUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    title: 'Text-to-SQL Research',
-    description:
-      'An experimental evaluation of failure modes in LLM-generated SQL across models of different sizes.',
-    technologies: ['Python', 'SQL', 'LLM', 'Data Analysis'],
-    status: 'Research',
-    image: '/images/text-to-sql-project.png',
-    githubUrl: '#',
-  },
-  {
-    title: 'Chalmers Location Explorer',
-    description:
-      'A data pipeline that collects, processes, and organizes room and building information from the Chalmers Maps API.',
-    technologies: ['Python', 'REST API', 'JSON', 'Data Processing'],
-    status: 'Completed',
-    image: '/images/chalmers-map-project.png',
-    githubUrl: '#',
-  },
-]
 </script>
 
 <template>
@@ -62,22 +12,13 @@ const projects: Project[] = [
     <header class="projects-header">
       <div class="projects-heading">
         <h1>Selected Projects</h1>
-        <p>
-          Applications, experiments, and systems I have designed and built.
-        </p>
+        <p>Applications, experiments, and systems I have designed and built.</p>
       </div>
     </header>
 
     <section class="projects-grid">
-      <article
-        v-for="project in projects"
-        :key="project.title"
-        class="project-card"
-      >
-        <div
-          class="project-image"
-          :style="{ backgroundImage: `url(${project.image})` }"
-        >
+      <article v-for="project in projects" :key="project.id" :id="project.id" class="project-card">
+        <div class="project-image" :style="{ backgroundImage: `url(${project.image})` }">
           <span class="project-status">{{ project.status }}</span>
         </div>
 
@@ -85,10 +26,7 @@ const projects: Project[] = [
           <div class="project-heading-row">
             <h2>{{ project.title }}</h2>
 
-            <font-awesome-icon
-              class="project-heading-icon"
-              :icon="['fas', 'folder-open']"
-            />
+            <font-awesome-icon class="project-heading-icon" :icon="['fas', 'folder-open']" />
           </div>
 
           <p class="project-description">
@@ -96,10 +34,7 @@ const projects: Project[] = [
           </p>
 
           <div class="project-technologies">
-            <span
-              v-for="technology in project.technologies"
-              :key="technology"
-            >
+            <span v-for="technology in project.technologies" :key="technology">
               {{ technology }}
             </span>
           </div>
@@ -113,9 +48,7 @@ const projects: Project[] = [
               rel="noopener noreferrer"
             >
               View project
-              <font-awesome-icon
-                :icon="['fas', 'arrow-up-right-from-square']"
-              />
+              <font-awesome-icon :icon="['fas', 'arrow-up-right-from-square']" />
             </a>
 
             <a
