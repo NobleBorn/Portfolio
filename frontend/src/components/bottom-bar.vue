@@ -63,15 +63,15 @@ function isActive(path: string) {
           <span>Experience</span>
         </RouterLink>
 
-        <a href="#contact" class="dock-item">
+        <RouterLink to="/contact" class="dock-item" :class="{ 'dock-item-active': isActive('/contact') }">
           <font-awesome-icon :icon="['fas', 'envelope']" />
           <span>Contact</span>
-        </a>
+        </RouterLink>
 
-        <a href="#terminal" class="dock-item">
+        <div class="dock-item">
           <font-awesome-icon :icon="['fas', 'terminal']" />
           <span>Terminal</span>
-        </a>
+        </div>
       </nav>
 
       <!-- RIGHT DATE AREA -->

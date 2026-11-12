@@ -25,10 +25,27 @@
   position: relative;
 
   background:
+    url('@/assets/images/galaxy.png'),
     radial-gradient(circle at 75% 20%, rgba(78, 111, 190, 0.22), transparent 32%),
     radial-gradient(circle at 20% 75%, rgba(211, 148, 85, 0.16), transparent 30%),
     radial-gradient(circle at 50% 50%, rgba(34, 58, 110, 0.22), transparent 45%),
     linear-gradient(135deg, #030711 0%, #07101f 45%, #02030a 100%);
+
+  background-size:
+    cover,
+    cover,
+    auto,
+    auto,
+    auto;
+
+  background-position:
+    center,
+    center,
+    center,
+    center,
+    center;
+
+  background-repeat: no-repeat;
 }
 
 /* subtle stars */

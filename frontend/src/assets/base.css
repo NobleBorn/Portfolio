@@ -1,0 +1,11 @@
+/* Shared layout rules belong here rather than in a feature stylesheet. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}

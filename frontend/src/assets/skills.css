@@ -9,579 +9,172 @@
   color: white;
 
   background:
-    linear-gradient(
-      rgba(2, 6, 17, 0.45),
-      rgba(2, 6, 17, 0.55)
-    ),
-    url('@/assets/images/galaxy.png'),
+    linear-gradient(rgba(2, 6, 17, 0.45), rgba(2, 6, 17, 0.55)), url('@/assets/images/galaxy.png'),
     radial-gradient(circle at 78% 18%, rgba(95, 128, 220, 0.22), transparent 28%),
     radial-gradient(circle at 18% 82%, rgba(143, 124, 255, 0.14), transparent 30%),
     linear-gradient(135deg, #020611 0%, #050c1e 38%, #02040b 100%);
 
-  background-size:
-    cover,
-    cover,
-    auto,
-    auto,
-    auto;
+  background-size: cover, cover, auto, auto, auto;
 
-  background-position:
-    center,
-    center,
-    center,
-    center,
-    center;
+  background-position: center, center, center, center, center;
 
   background-repeat: no-repeat;
 }
 
-.skills-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.75) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(160, 170, 255, 0.45) 0 1px, transparent 1.7px),
-    radial-gradient(circle, rgba(231, 174, 107, 0.24) 0 1px, transparent 1.6px);
-
-  background-size: 48px 48px, 84px 84px, 132px 132px;
-  background-position: 0 0, 26px 32px, 68px 14px;
-
-  opacity: 0.22;
+/* Grid tiles retain the existing galaxy background and palette. */
+.skills-page {
+  padding-bottom: 11rem;
 }
-
-.skills-page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-
-  background:
-    radial-gradient(circle at 88% 20%, rgba(143, 124, 255, 0.28), transparent 18%),
-    radial-gradient(circle at 10% 88%, rgba(79, 157, 255, 0.18), transparent 22%),
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.025),
-      transparent 18%,
-      transparent 82%,
-      rgba(255, 255, 255, 0.015)
-    );
-
-  opacity: 0.9;
-}
-
-.skills-page::before {
-  display: none;
-}
-
-.skills-scene::after {
-  display: none;
-}
-
-/* Main scene */
-
 .skills-scene {
   position: relative;
   z-index: 2;
-
   width: min(100%, 1500px);
-  min-height: calc(100vh - 12rem);
-
   margin: 0 auto;
 }
-
-/* Milky Way glow band */
-
-.skills-scene::before {
-  content: "";
-  position: absolute;
-  left: -8%;
-  top: 8%;
-
-  width: 118%;
-  height: 42%;
-
-  z-index: 0;
-  pointer-events: none;
-
-  background:
-    radial-gradient(circle at 18% 55%, rgba(79, 157, 255, 0.28), transparent 16%),
-    radial-gradient(circle at 42% 48%, rgba(143, 124, 255, 0.26), transparent 18%),
-    radial-gradient(circle at 68% 42%, rgba(160, 100, 255, 0.22), transparent 18%),
-    radial-gradient(circle at 86% 35%, rgba(231, 174, 107, 0.08), transparent 16%),
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(65, 98, 210, 0.12) 18%,
-      rgba(143, 124, 255, 0.24) 44%,
-      rgba(79, 157, 255, 0.18) 62%,
-      rgba(143, 124, 255, 0.2) 78%,
-      transparent 100%
-    );
-
-  filter: blur(42px);
-  transform: rotate(24deg);
-  opacity: 0.95;
-}
-
-/* Milky Way star dust */
-
-.skills-scene::after {
-  content: "";
-  position: absolute;
-  left: -5%;
-  top: 0;
-
-  width: 112%;
-  height: 90%;
-
-  z-index: 0;
-  pointer-events: none;
-
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(150, 170, 255, 0.7) 0 1px, transparent 1.8px),
-    radial-gradient(circle, rgba(143, 124, 255, 0.6) 0 1px, transparent 1.8px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.45) 0 1px, transparent 1.6px);
-
-  background-size:
-    38px 38px,
-    72px 72px,
-    110px 110px,
-    160px 160px;
-
-  background-position:
-    0 0,
-    20px 30px,
-    40px 10px,
-    80px 55px;
-
-  mask-image: linear-gradient(
-    115deg,
-    transparent 0%,
-    black 25%,
-    black 75%,
-    transparent 100%
-  );
-
-  -webkit-mask-image: linear-gradient(
-    115deg,
-    transparent 0%,
-    black 25%,
-    black 75%,
-    transparent 100%
-  );
-
-  opacity: 0.58;
-}
-
-/* Header */
-
 .skills-header {
-  position: relative;
-  z-index: 8;
-
   display: flex;
   align-items: center;
   gap: 1rem;
-
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(2.5rem, 5vw, 5rem);
 }
-
 .skills-header h1 {
-  margin: 0;
-
   color: rgba(255, 255, 255, 0.92);
   font-size: clamp(1.4rem, 2.4vw, 2.2rem);
   font-weight: 900;
   letter-spacing: 0.42em;
-
-  text-shadow:
-    0 0 12px rgba(143, 124, 255, 0.22),
-    0 0 26px rgba(99, 140, 255, 0.14);
 }
-
 .skills-sparkle {
   color: #8f7cff;
   font-size: 1.6rem;
-
-  text-shadow:
-    0 0 12px rgba(143, 124, 255, 0.95),
-    0 0 32px rgba(143, 124, 255, 0.65);
+  text-shadow: 0 0 20px #8f7cff;
 }
-
-/* Curved Milky Way spine SVG */
-
-.skills-spine-lines {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  width: 100%;
-  height: 100%;
-
-  pointer-events: none;
-  overflow: visible;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: 0.75rem;
 }
-
-.skills-spine-glow,
-.skills-spine-core,
-.skills-spine-sparkles {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.skills-spine-glow {
-  stroke: rgba(143, 124, 255, 0.18);
-  stroke-width: 5.5;
-
-  filter:
-    blur(1px)
-    drop-shadow(0 0 16px rgba(143, 124, 255, 0.75))
-    drop-shadow(0 0 42px rgba(79, 157, 255, 0.45));
-}
-
-.skills-spine-core {
-  stroke: url(#skills-gradient);
-  stroke-width: 0.75;
-
-  filter:
-    drop-shadow(0 0 8px rgba(255, 255, 255, 0.55))
-    drop-shadow(0 0 18px rgba(143, 124, 255, 0.6));
-}
-
-.skills-spine-sparkles {
-  stroke: rgba(255, 255, 255, 0.9);
-  stroke-width: 0.5;
-  stroke-dasharray: 0.4 7;
-  stroke-dashoffset: 0;
-
-  animation: skills-drift 10s linear infinite;
-}
-
-@keyframes skills-drift {
-  from {
-    stroke-dashoffset: 0;
-  }
-
-  to {
-    stroke-dashoffset: -80;
-  }
-}
-
-/* Clusters */
-
-.skill-cluster {
-  position: absolute;
-  z-index: 3;
-
-  width: 430px;
-  height: 290px;
-
-  transform: translate(-50%, -50%);
-}
-
-/* top-left */
-.skill-cluster-backend {
-  left: 22%;
-  top: 24%;
-}
-
-/* middle */
-.skill-cluster-frontend {
-  left: 52%;
-  top: 48%;
-}
-
-/* bottom-right */
-.skill-cluster-tools {
-  left: 82%;
-  top: 76%;
-}
-
-/* Local constellation lines */
-
-.cluster-lines {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  overflow: visible;
-}
-
-.skill-line {
-  stroke: rgba(143, 124, 255, 0.46);
-  stroke-width: 0.42;
-
-  filter:
-    drop-shadow(0 0 4px rgba(143, 124, 255, 0.55))
-    drop-shadow(0 0 10px rgba(99, 140, 255, 0.18));
-}
-
-/* Nodes */
-
-.skill-node-wrapper {
-  position: absolute;
-  z-index: 4;
-
-  transform: translate(-50%, -50%);
-}
-
-.skill-node {
+.skill-tile {
   position: relative;
-  display: block;
-
-  width: 14px;
-  height: 14px;
-
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.78);
-
-  background: currentColor;
-
-  box-shadow:
-    0 0 10px currentColor,
-    0 0 24px currentColor;
+  min-width: 0;
+  isolation: isolate;
 }
-
-.skill-node::after {
-  content: "";
+.skill-tile::before {
+  content: '';
   position: absolute;
-  inset: -9px;
-
-  border-radius: inherit;
-  background: currentColor;
-  opacity: 0.12;
-
-  animation: skill-pulse 2.6s ease-in-out infinite;
+  inset: 0;
+  z-index: -1;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(143, 124, 255, 0.2);
+  background: rgba(3, 7, 20, 0.85);
+  transform: rotate(10deg);
+  transition: transform 0.25s ease;
 }
-
-.skill-node-center {
-  width: 34px;
-  height: 34px;
-
-  border-width: 3px;
-
-  box-shadow:
-    0 0 18px currentColor,
-    0 0 44px currentColor,
-    0 0 90px rgba(143, 124, 255, 0.42);
-}
-
-.skill-node-center::before {
-  content: "";
-  position: absolute;
-  inset: -18px;
-
-  border-radius: inherit;
-  border: 1px solid rgba(143, 124, 255, 0.28);
-
-  box-shadow:
-    0 0 0 10px rgba(143, 124, 255, 0.08),
-    0 0 0 22px rgba(79, 157, 255, 0.035);
-}
-
-.skill-node-core {
-  color: #8f7cff;
-}
-
-.skill-node-proficient {
-  color: #4f9dff;
-}
-
-.skill-node-familiar {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Labels */
-
-.skill-name {
-  position: absolute;
-  left: 50%;
-  bottom: 1rem;
-
-  transform: translateX(-50%);
-
-  white-space: nowrap;
-
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.78rem;
-  font-weight: 760;
-
-  text-shadow:
-    0 0 8px rgba(0, 0, 0, 0.95),
-    0 0 16px rgba(143, 124, 255, 0.24);
-}
-
-.skill-name-center {
-  bottom: -2.2rem;
-
-  color: white;
-  font-size: 1.05rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-
-  text-shadow:
-    0 0 8px rgba(0, 0, 0, 0.95),
-    0 0 20px rgba(143, 124, 255, 0.5);
-}
-
-/* Legend */
-
-.skills-legend {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  z-index: 8;
-
-  transform: translateX(-50%);
-
+.skill-tile-face {
+  min-height: 175px;
+  aspect-ratio: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.6rem;
-
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.78rem;
-  font-weight: 700;
+  gap: 0.7rem;
+  padding: 1rem 0.5rem;
+  border: 1px solid rgba(160, 170, 255, 0.24);
+  border-radius: 1.2rem;
+  background: linear-gradient(145deg, rgba(29, 37, 65, 0.78), rgba(8, 15, 32, 0.8));
+  backdrop-filter: blur(18px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 12px 32px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
-
-.skills-legend div {
+.skill-tile:hover .skill-tile-face {
+  transform: translateY(-5px);
+  border-color: #a997ff;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(143, 124, 255, 0.3);
+}
+.skill-tile:hover::before {
+  transform: rotate(14deg);
+}
+.skill-icon,
+.skill-monogram {
+  color: #b6a4ff;
+  height: 3rem;
+  font-size: 3rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 12px rgba(143, 124, 255, 0.3));
+}
+.skill-tile:nth-child(3n + 2) .skill-icon,
+.skill-tile:nth-child(3n + 2) .skill-monogram {
+  color: #7eb8f5;
+}
+.skill-tile:nth-child(3n) .skill-icon,
+.skill-tile:nth-child(3n) .skill-monogram {
+  color: #e7ae6b;
+}
+.skill-monogram {
+  font-family: ui-monospace, monospace;
+  font-size: 2.4rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
 }
-
-.legend-dot {
-  width: 8px;
-  height: 8px;
-
-  display: inline-block;
-  border-radius: 50%;
+.skill-tile-name {
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-align: center;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
 }
-
-.legend-core {
-  background: #8f7cff;
-  box-shadow: 0 0 10px #8f7cff;
-}
-
-.legend-proficient {
-  background: #4f9dff;
-  box-shadow: 0 0 10px #4f9dff;
-}
-
-.legend-familiar {
-  background: white;
-  box-shadow: 0 0 10px white;
-}
-
-/* Bottom bar */
-
 .skills-bottom-bar {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-
-  width: 100%;
   z-index: 20;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
   pointer-events: none;
 }
-
 .skills-bottom-bar > * {
   pointer-events: auto;
 }
-
-/* Animations */
-
-@keyframes skill-pulse {
-  0%,
-  100% {
-    transform: scale(0.8);
-    opacity: 0.12;
-  }
-
-  50% {
-    transform: scale(1.4);
-    opacity: 0.24;
+@media (max-width: 1300px) {
+  .skills-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
-
-/* Responsive */
-
-@media (max-width: 1150px) {
-  .skills-page {
-    overflow-y: auto;
-    padding: 2rem 1rem 8rem;
-  }
-
-  .skills-scene {
-    min-height: auto;
-
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  .skills-scene::before,
-  .skills-scene::after,
-  .skills-spine-lines {
-    display: none;
-  }
-
-  .skill-cluster {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
-
-    width: min(100%, 520px);
-    height: 320px;
-
-    margin: 0 auto;
-    transform: none;
-  }
-
-  .skills-legend {
-    position: relative;
-    left: auto;
-    bottom: auto;
-
-    transform: none;
-
-    flex-wrap: wrap;
-    margin-top: 1rem;
+@media (max-width: 950px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-
 @media (max-width: 560px) {
-  .skills-header h1 {
-    font-size: 1.15rem;
+  .skills-page {
+    padding: 2rem 1rem 11rem;
   }
-
-  .skill-cluster {
-    height: 300px;
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
   }
-
-  .skill-name {
-    font-size: 0.7rem;
+  .skill-tile-face {
+    min-height: 160px;
   }
-
-  .skill-name-center {
-    font-size: 0.86rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .skill-tile::before,
+  .skill-tile-face {
+    transition: none;
+  }
+  .skill-tile:hover .skill-tile-face {
+    transform: none;
+  }
+  .skill-tile:hover::before {
+    transform: rotate(10deg);
   }
 }
