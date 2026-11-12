@@ -307,3 +307,15 @@ body {
 }
 
 
+
+@media (max-width: 700px) {
+  .topbar-content { grid-template-columns: auto minmax(0, 1fr); padding: 0.65rem 0.9rem; gap: 0.5rem; }
+  .topbar-content > div:empty { display: none; }
+  .topbar-right { min-width: 0; gap: 0.75rem; margin-right: 0; }
+  .topbar-time { min-width: 0; font-size: 0.7rem; white-space: normal; }
+  .os-title { font-size: 0.8rem; }
+}
+@media (max-width: 480px) {
+  .topbar-right > svg, .topbar-right .battery { display: none; }
+  .topbar-right { gap: 0; }
+}

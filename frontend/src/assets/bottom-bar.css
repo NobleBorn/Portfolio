@@ -247,3 +247,41 @@
     transform: rotate(360deg);
   }
 }
+/* Navigation keeps priority as the available width decreases. */
+.bottombar-glass > *, .bottombar-nav, .dock-item { min-width: 0; }
+.profile-orb, .date-card, .status-orbit { flex-shrink: 0; }
+.bottombar-glass { background-color: rgba(8, 12, 28, 0.88); }
+.dock-item:focus-visible { outline: 2px solid #b6a4ff; outline-offset: 2px; }
+
+@media (max-width: 1350px) {
+  .bottombar-date { display: none; }
+  .bottombar-glass { grid-template-columns: minmax(180px, 1fr) minmax(0, 3fr); gap: 1rem; }
+}
+
+@media (max-width: 1000px) {
+  .bottombar-profile { display: none; }
+  .bottombar-glass { grid-template-columns: minmax(0, 1fr); width: 100%; min-height: 0; padding: 0.5rem; }
+  .bottombar-nav { gap: 0.35rem; }
+  .dock-item { height: 62px; }
+}
+
+@media (max-width: 600px) {
+  .bottombar-wrapper { padding: 0 0.5rem calc(0.5rem + env(safe-area-inset-bottom, 0px)); }
+  .bottombar-glass { border-radius: 1.1rem; }
+  .bottombar-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.15rem; }
+  .dock-item { height: 58px; gap: 0.35rem; border-radius: 0.75rem; }
+  .dock-item span { font-size: clamp(0.55rem, 2.1vw, 0.75rem); }
+  .dock-item svg { font-size: 1.1rem; }
+  .dock-item-terminal { display: none; }
+}
+
+/* Fixed docks on content pages must not cover the final card or form. */
+:is(.projects-page, .skills-page, .experience-page, .contact-page) {
+  padding-bottom: calc(11rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-orbit { animation: none; }
+  .dock-item { transition: none; }
+  .dock-item:hover { transform: none; }
+}
