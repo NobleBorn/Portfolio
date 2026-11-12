@@ -13,6 +13,7 @@ const message = ref('')
 const isSending = ref(false)
 const successMessage = ref('')
 const errorMessage = ref('')
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080').replace(/\/$/, '')
 
 async function sendMessage() {
   successMessage.value = ''
@@ -26,7 +27,7 @@ async function sendMessage() {
   isSending.value = true
 
   try {
-    const response = await fetch('http://localhost:8080/api/contact', {
+    const response = await fetch(`${apiBaseUrl}/api/contact`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
