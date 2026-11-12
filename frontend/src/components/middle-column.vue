@@ -11,8 +11,7 @@
     <div class="hero-line"></div>
 
     <p class="hero-description">
-        I build modern, scalable, and user-focused software systems
-        that solve real problems and drive meaningful impact.
+        I enjoy turning ideas into working software, solving challenging problems, and learning new technologies along the way.
     </p>
 
     <div class="hero-actions">
@@ -27,26 +26,6 @@
         </RouterLink>
     </div>
 
-    <div class="hero-stats">
-        <div>
-        <span>Location</span>
-        <strong>Sweden</strong>
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div>
-        <span>Experience</span>
-        <strong>Junior</strong>
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div>
-        <span>Availability</span>
-        <strong>Open</strong>
-        </div>
-    </div>
     </div>
 
     <!-- RIGHT IMAGE -->
