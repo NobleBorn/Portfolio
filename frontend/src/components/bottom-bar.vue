@@ -42,7 +42,7 @@ function isActive(path: string) {
       </div>
 
       <!-- CENTER NAVIGATION -->
-      <nav class="bottombar-nav">
+      <nav class="bottombar-nav" aria-label="Main navigation">
         <RouterLink to="/" class="dock-item" :class="{ 'dock-item-active': isActive('/') }">
           <font-awesome-icon :icon="['fas', 'house']" />
           <span>Home</span>
@@ -68,7 +68,7 @@ function isActive(path: string) {
           <span>Contact</span>
         </RouterLink>
 
-        <div class="dock-item">
+        <div class="dock-item dock-item-terminal">
           <font-awesome-icon :icon="['fas', 'terminal']" />
           <span>Terminal</span>
         </div>

@@ -15,12 +15,13 @@
 ========================= */
 
 .home-page {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
-  overflow: hidden;
+  overflow-x: clip;
 
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr auto;
 
   position: relative;
 
@@ -145,7 +146,7 @@
   min-height: 0;
 
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) minmax(700px, 1150px) minmax(180px, 1fr);
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 3.5fr) minmax(200px, 1fr);
   align-items: stretch;
   gap: 1.5rem;
 
@@ -156,11 +157,11 @@
   grid-column: 1;
 
   height: 100%;
-  max-height: calc(100vh - 14rem);
   min-height: 0;
 
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto;
+  align-content: start;
   gap: 1rem;
 
   color: white;
@@ -177,7 +178,6 @@
 
 .side-column {
   height: 100%;
-  max-height: calc(100vh - 14rem);
 
   border-radius: 1.4rem;
   background: rgba(255, 255, 255, 0.055);
@@ -197,15 +197,14 @@
   position: relative;
 
   width: 100%;
-  height: 100%;
-  max-height: calc(100vh - 14rem);
-  min-height: 420px;
+  min-width: 0;
+  min-height: 520px;
 
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
   align-items: center;
 
-  padding: 3rem 3.5rem;
+  padding: clamp(1.5rem, 2.5vw, 3.5rem);
   border-radius: 1.6rem;
   overflow: hidden;
 
@@ -303,7 +302,8 @@
 .hero-name {
   margin: 0;
 
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(2.8rem, 4.6vw, 6.5rem);
+  overflow-wrap: anywhere;
   line-height: 0.92;
   letter-spacing: -0.08em;
   font-weight: 900;
@@ -350,14 +350,16 @@
 
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
 
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 .hero-button {
-  min-width: 165px;
+  min-width: 0;
+  padding: 0 1.2rem;
   height: 56px;
 
   display: inline-flex;
@@ -409,7 +411,8 @@
   position: relative;
   z-index: 3;
 
-  height: 100%;
+  align-self: stretch;
+  min-height: 360px;
 
   overflow: hidden;
 }
@@ -486,7 +489,8 @@
 ========================= */
 
 .home-bottom {
-  min-height: 7.5rem;
+  min-height: 0;
+  padding-top: 1rem;
 
   display: flex;
   align-items: center;
@@ -497,70 +501,44 @@
    RESPONSIVE
 ========================= */
 
-@media (max-width: 1100px) {
-  .hero-panel {
-    grid-template-columns: 1fr;
-    padding: 2.5rem;
-  }
+.home-top {
+  padding: 1rem 2rem 0;
+}
 
-  .hero-right {
-    display: none;
-  }
+.home-top .topbar-wrapper {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  width: 100%;
+}
 
-  .hero-left {
-    max-width: 720px;
-  }
+.home-middle > * { min-width: 0; }
 
-  .hero-name {
-    font-size: clamp(3rem, 12vw, 6rem);
-  }
+@media (max-width: 1250px) {
+  .home-middle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-panel { grid-column: 1 / -1; grid-row: 1; }
+  .left-column { grid-column: 1; grid-row: 2; height: auto; }
+  .home-middle .apps-panel { grid-column: 2; grid-row: 2; }
+  .hero-name { font-size: clamp(3rem, 6.5vw, 5.5rem); }
 }
 
 @media (max-width: 700px) {
-  .home-middle {
-    padding: 0.8rem;
-  }
-
+  .home-top { padding: 0.75rem 0.75rem 0; }
+  .home-middle { grid-template-columns: minmax(0, 1fr); padding: 1rem 0.75rem; gap: 1rem; }
   .hero-panel {
-    min-height: 520px;
-    max-height: none;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
     height: auto;
-
-    padding: 2rem 1.4rem;
+    padding: 2rem 1.25rem;
     border-radius: 1.2rem;
   }
-
-  .hero-tag {
-    margin-bottom: 2rem;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-button {
-    width: 100%;
-  }
-
-}
-
-@media (max-width: 1250px) {
-  .home-middle {
-    grid-template-columns: 1fr;
-  }
-
-  .left-column {
-    display: none;
-  }
-
-  .hero-panel {
-    grid-column: 1;
-  }
-
-  .apps-panel {
-    display: none;
-  }
+  .hero-right { display: none; }
+  .hero-name { font-size: clamp(2.5rem, 11vw, 4.5rem); }
+  .hero-title { font-size: clamp(1.1rem, 4.5vw, 1.5rem); }
+  .hero-actions { align-items: stretch; }
+  .hero-button { flex: 1 1 160px; }
+  .home-middle .apps-panel { grid-column: 1; grid-row: 2; }
+  .left-column { grid-column: 1; grid-row: 3; }
+  .home-bottom { position: sticky; bottom: 0; padding-top: 0; z-index: 30; }
 }
