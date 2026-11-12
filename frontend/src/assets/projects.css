@@ -222,13 +222,19 @@
     );
 }
 
+#runeterra-ai .project-image,
 #text-to-sql-research .project-image {
   background-size: contain;
   background-color: #f3fbfd;
 }
 
+#runeterra-ai .project-image::after,
 #text-to-sql-research .project-image::after {
   background: none;
+}
+
+#runeterra-ai .project-image {
+  background-color: #fff;
 }
 
 #photobarber .project-image {

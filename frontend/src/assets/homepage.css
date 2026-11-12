@@ -402,45 +402,6 @@
 }
 
 /* =========================
-   HERO STATS
-========================= */
-
-.hero-stats {
-  position: relative;
-
-  margin-top: 2.5rem;
-
-  display: flex;
-  align-items: center;
-  gap: 1.7rem;
-
-  color: white;
-}
-
-.hero-stats div:not(.stat-divider) {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.hero-stats span {
-  color: rgba(231, 174, 107, 0.75);
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.hero-stats strong {
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.9rem;
-}
-
-.stat-divider {
-  width: 1px;
-  height: 42px;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-/* =========================
    HERO RIGHT SIDE
 ========================= */
 
@@ -584,14 +545,6 @@
     width: 100%;
   }
 
-  .hero-stats {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .stat-divider {
-    display: none;
-  }
 }
 
 @media (max-width: 1250px) {
