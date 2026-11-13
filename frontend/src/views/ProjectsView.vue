@@ -18,7 +18,15 @@ const { currentDateTime } = useCurrentDateTime()
 
     <section class="projects-grid">
       <article v-for="project in projects" :key="project.id" :id="project.id" class="project-card">
-        <div class="project-image" :style="{ backgroundImage: `url(${project.image})` }">
+        <div class="project-image" :style="project.image ? { backgroundImage: `url(${project.image})` } : undefined">
+          <div
+            v-if="project.id === 'asl-sign-interpreter' && !project.image"
+            class="project-interpreter-cover"
+            aria-hidden="true"
+          >
+            <font-awesome-icon class="project-cover-icon" :icon="['fas', 'hands-asl-interpreting']" />
+            <span>Interpreter</span>
+          </div>
           <span class="project-status">{{ project.status }}</span>
         </div>
 

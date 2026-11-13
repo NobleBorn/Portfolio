@@ -246,6 +246,32 @@
   background: none;
 }
 
+#asl-sign-interpreter .project-image {
+  display: grid;
+  place-items: center;
+  background: #fff;
+}
+
+#asl-sign-interpreter .project-image::after {
+  background: none;
+}
+
+.project-interpreter-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3.5rem 1rem 1rem;
+  color: #30215d;
+  font-size: 1.5rem;
+  font-weight: 750;
+}
+
+.project-cover-icon {
+  color: #b6a4ff;
+  font-size: 5rem;
+}
+
 .project-status {
   position: absolute;
   top: 1rem;

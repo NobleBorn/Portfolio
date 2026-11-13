@@ -4,7 +4,7 @@ type Project = {
   description: string
   technologies: string[]
   status: string
-  image: string
+  image?: string
   demoUrl?: string
   githubUrl?: string
 }
@@ -62,5 +62,22 @@ export const projects: Project[] = [
     status: 'Research',
     image: '/images/text-to-sql-project.png',
     githubUrl: 'https://github.com/NobleBorn/Maste-Thesis',
+  },
+  {
+    id: 'asl-sign-interpreter',
+    title: 'ASL Sign Interpreter',
+    description:
+      'Developing a real-time American Sign Language (ASL) interpreter. Using computer vision and a fine-tuned VideoMAE transformer, the system aims to recognize sign language gestures and convert them into text and speech, making online communication more accessible.',
+    technologies: [
+      'Python',
+      'PyTorch',
+      'VideoMAE',
+      'Hugging Face',
+      'OpenCV',
+      'Computer Vision',
+      'Deep Learning',
+    ],
+    status: 'In progress',
+    githubUrl: 'https://github.com/NobleBorn/ASL-Interpreter',
   },
 ]
