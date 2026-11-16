@@ -11,15 +11,27 @@ type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'photobarber',
-    title: 'PhotoBarber',
+    id: 'chroma',
+    title: 'Chroma',
     description:
-      'PhotoBarber is a free, browser-based platform offering simple and accessible tools for editing and converting images, without accounts, subscriptions, or usage limits.',
-    technologies: ['Next.js', 'React & TypeScript', 'Tailwind CSS', 'Browser Canvas API'],
+      'An interactive computer vision application where you can explore real-time color detection and object tracking using your webcam, with customizable HSV controls and live bounding box visualization.',
+    technologies: [
+      'Python',
+      'OpenCV',
+      'Computer Vision',
+      'Object Tracking',
+      'Image Processing',
+      'FastAPI',
+      'WebSockets',
+      'Next.js',
+      'TypeScript',
+      'React',
+      'Tailwind CSS',
+    ],
     status: 'Complete',
-    image: '/images/photobarber.png',
-    demoUrl: 'https://photo-barber-eight.vercel.app/',
-    githubUrl: 'https://github.com/NobleBorn/PhotoBarber',
+    image: '/images/chroma.png',
+    demoUrl: 'https://chroma-alpha-taupe.vercel.app/',
+    githubUrl: 'https://github.com/NobleBorn/Chroma',
   },
   {
     id: 'runeterra-ai',
@@ -59,7 +71,7 @@ export const projects: Project[] = [
       'Failure Analysis',
       'Experimental Design',
     ],
-    status: 'Research',
+    status: 'Complete',
     image: '/images/text-to-sql-project.png',
     githubUrl: 'https://github.com/NobleBorn/Maste-Thesis',
   },
@@ -79,5 +91,16 @@ export const projects: Project[] = [
     ],
     status: 'In progress',
     githubUrl: 'https://github.com/NobleBorn/ASL-Interpreter',
+  },
+  {
+    id: 'photobarber',
+    title: 'PhotoBarber',
+    description:
+      'PhotoBarber is a free, browser-based platform offering simple and accessible tools for editing and converting images, without accounts, subscriptions, or usage limits.',
+    technologies: ['Next.js', 'React & TypeScript', 'Tailwind CSS', 'Browser Canvas API'],
+    status: 'Complete',
+    image: '/images/photobarber.png',
+    demoUrl: 'https://photo-barber-eight.vercel.app/',
+    githubUrl: 'https://github.com/NobleBorn/PhotoBarber',
   },
 ]

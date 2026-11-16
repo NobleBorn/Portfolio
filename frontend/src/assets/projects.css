@@ -237,6 +237,15 @@
   background-color: #fff;
 }
 
+#chroma .project-image {
+  background-size: contain;
+  background-color: #fff;
+}
+
+#chroma .project-image::after {
+  background: none;
+}
+
 #photobarber .project-image {
   background-size: contain;
   background-color: #fdfbfc;
